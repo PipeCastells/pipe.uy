@@ -1,0 +1,31 @@
+<section>
+    <script>
+        (function(){
+            document.getElementById('modal-container').style.display = 'flex';
+            dataLayer.push({event:"modal-open", modalTitle:"{{.Title}}", modalDescription:"{{.Description}}", modalImage:"{{.Image}}", modalLinks:"{{.Links}}" });
+        })()
+    </script> 
+        <div class="modal-header">
+            <img style="margin-left:auto; margin-right: auto; object-fit: fill; object-position: center;"  src="{{.Image}}"/>
+        </div>
+
+        <div class="tilt-left" style="margin-bottom: 1rem;">
+            <h1 style="cursor:unset; user-select: none; margin-bottom: 0;" class="modal-title button-style">{{.Title}}</h1>
+            <p style="margin-left: 16px; font-size: large;">{{.Stack}}</p>
+        </div>
+        
+        <div style="margin-bottom: 2rem;">
+
+            <section class="modal-html">
+                {{.HTML}}
+            </section>
+
+            <div class="links" style="margin-top: 1.5rem;" >
+
+                {{range .Links}}
+                    <a title="{{.Link}}" class="clickable button-style" style="color:#fffff7;  font-family: 'Tilt Neon', sans-serif;" href="{{.Link}}">{{.Title}}</a>        
+                {{end }}
+            </div>
+        </div>
+         
+</section>

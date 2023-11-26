@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TNSPQWQT');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐶</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/htmx.org@1.6.0/dist/htmx.js"></script>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: #E7E0C5;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            flex-direction: column;
+        }
+
+        p,h1 {
+            color: #fffff7;
+            font-size: xx-large;
+            font-family: 'Tilt Neon', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer {
+            height: auto;
+            min-height: 2rem;
+            padding: 0 20px;
+        }
+
+        .image-background {
+            background-color: #E7E0C5;
+        }
+
+        .image-background:hover {
+            cursor: pointer;
+        }
+
+        .image-background:hover>img {
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+
+        .outline-style{
+            outline-offset: 4px;
+            outline: .3rem solid #fffff7;
+            border-radius: 6px;
+        }
+
+
+        .card {
+            max-width: 256px;
+            display: flex;
+            flex-direction: column;
+            margin: 20px 1.25rem;
+            max-height:156px;
+        }
+
+
+       
+
+        .card:hover {
+            cursor: pointer;
+        }
+
+        .card-img {
+            overflow: hidden;
+            border-radius: .5rem;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card img {
+            transition: cubic-bezier(0.39, 0.575, 0.565, 1) all .333s;
+            height: auto;
+            width: 100%;
+            object-fit:cover;
+            object-position: center;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-txt {
+            height: 0px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+         .card-txt>p {
+            margin-left: 10px;
+            transform: translateX(5px);
+            background-color: #8B5A2Baa;
+            color: #fffff7;
+            position: relative;
+            padding: 0 5px;
+            bottom: 30px;
+            height: min-content;
+        } 
+
+        .card-txt>p:last-child {
+            margin-right: 10px;
+            transform: none;
+            transition: cubic-bezier(0.39, 0.575, 0.565, 1) all .333s;
+        }
+        
+        .card-txt:hover >p:last-child {
+            transform: scale(1.1);
+        }
+
+        .clickable {
+            margin-right: 10px;
+            transform: none;
+            transition: cubic-bezier(0.39, 0.575, 0.565, 1) all .333s;
+        }
+        
+        .close-action:hover{
+            background-color: #ac2222;
+        }
+
+        .clickable:hover {
+            transform: scale(1.1) !important;
+        }
+
+        #modal-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #modal-container > section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #modal-container > section > header {
+            font-size: large;
+        }
+
+        .modal{
+            max-width: 640px;
+            width:100vw;
+            height: 75vh;
+            background-color: #E7E0C5 !important;
+            cursor: unset;
+            display: flex;
+            flex-direction: column;
+            justify-content: baseline;
+            
+        }
+
+        #modal-content{
+            width:100%;
+            height:100%;
+            overflow-y: auto;
+        }
+        #modal-content > section{
+            margin: 0 20px;
+            overflow: hidden;
+        }
+        #modal-header{
+            display: flex; 
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            width:100%;  
+        }
+
+        #modal-header > button{
+            color: #fffff7;
+            margin:.5rem;
+            margin-right: 10px;
+        }
+
+        .button-style{
+            background-color: #8B5A2Baa;
+            padding: 0rem 1rem;
+            font-size: large;
+            white-space: nowrap;
+            border-radius: 4rem;
+            transition: cubic-bezier(0.39, 0.575, 0.565, 1) all .333s;
+            cursor: pointer;
+            font-family: 'Tilt Neon', sans-serif;
+            border:none;
+            width: min-content;
+        }
+
+
+        .tilt-right{
+            transform: rotateZ(6deg);
+        }
+
+        .tilt-left{
+            transform: rotateZ(-6deg);
+        }
+        .modal-header{
+            border-radius: 3rem;
+            height: 45vh;
+            /* box-shadow: 0 4px 1px #8B5A2Baa; */
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            max-width: 860px !important;
+            width:100%; max-height:45%; overflow: hidden;
+        }
+
+        .modal-header > img{
+            object-fit: fill;
+            object-position: center;
+            height: 100%;
+        }
+        .modal-title{
+            margin: 1rem 0;
+            margin-top: -1.5rem;
+            font-size: xx-large;
+            font-family: 'Tilt Neon', sans-serif;
+        }
+
+        .modal-html{
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-html > p{
+            font-size: x-large;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TNSPQWQT" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
+    <main>
+        <div style="margin-bottom: 1rem;">
+            <p>pipe.</p>
+        </div>
+
+        <section
+            style="margin-left: auto; margin-right: auto;align-content: center; margin:2rem; align-self:center; max-width: 650px; min-height: 4rem; display: flex; flex-wrap: wrap; justify-content: center;"
+            id="projects">
+
+            {{range .Projects}}
+                <div class="card outline-style">
+                    <div hx-swap="innerHTML" hx-get="/asd?project={{.Title}}" hx-target="#modal-content" class="card-img">
+                        <img src="{{.Image}}" />
+                    </div>
+                    <div class="card-txt">
+                        <p class="button-style tilt-right"><b>{{.Title}}</b></p>
+                        <p class="button-style" title="{{.Stack}}" hx-swap="innerHTML" hx-get="/project?project={{.Title}}" hx-target="#modal-content"><span>&#9432;</span></p>
+                         
+                    </div>
+                </div>
+            {{end}}
+ 
+
+        </section>
+
+ 
+    </main>
+    <footer>
+        <p style="color:red; font-size:unset;"></p>
+    </footer>
+
+
+
+    <div style="display: none;" id="modal-container">
+       <section id="modal" class="outline-style modal">
+        <header id="modal-header">
+            <button class="button-style tilt-right clickable close-action" onclick="document.getElementById('modal-container').style.display = 'none';">X</button>
+        </header>
+        <div id="modal-content">
+            <p></p>
+       </div>
+       </section>
+    </div>
+
+    <!-- Button to Open Modal -->
+
+    <script>
+        function openModal() {
+            document.getElementById('modal-container').style.display = 'flex';
+        }
+
+        // Close the modal if the user clicks outside of it
+        window.onclick = function (event) {
+            var card = event.target.closest('.card');
+            if (card) {
+                document.getElementById('modal-container').style.display = 'flex';
+            }
+            
+            var modal = document.getElementById('modal-container');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
