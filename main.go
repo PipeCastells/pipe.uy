@@ -145,7 +145,6 @@ func main() {
 		if linksStr != "" {
 			linksArr := strings.Split(linksStr, ",")
 			for _, link := range linksArr {
-				fmt.Println(link)
 				linkArr := strings.Split(link, ">")
 				links = append(links, Link{linkArr[0], linkArr[1]})
 			}
@@ -158,5 +157,5 @@ func main() {
 	}).Methods("GET")
 
 	log.Println("listening on", port)
-	log.Fatal(http.ListenAndServe(":"+port, router))
+	log.Fatal(http.ListenAndServe("0.0.0.0:"+port, router))
 }

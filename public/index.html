@@ -123,7 +123,6 @@
 
          .card-txt>p {
             margin-left: 10px;
-            transform: translateX(5px);
             background-color: #8B5A2Baa;
             color: #fffff7;
             position: relative;
@@ -234,7 +233,6 @@
         .modal-header{
             border-radius: 3rem;
             height: 45vh;
-            /* box-shadow: 0 4px 1px #8B5A2Baa; */
             display: flex;
             justify-content: center;
             align-items: baseline;
@@ -262,6 +260,13 @@
         .modal-html > p{
             font-size: x-large;
         }
+        @media all and (min-width:0px) and (max-width: 680px) {
+            .modal{
+                width: 90%;
+            }
+            }
+
+
     </style>
 </head>
 
@@ -283,11 +288,11 @@
 
             {{range .Projects}}
                 <div class="card outline-style">
-                    <div hx-swap="innerHTML" hx-get="/asd?project={{.Title}}" hx-target="#modal-content" class="card-img">
+                    <div hx-swap="innerHTML" hx-get="/project?project={{.Title}}" hx-target="#modal-content" class="card-img">
                         <img src="{{.Image}}" />
                     </div>
                     <div class="card-txt">
-                        <p class="button-style tilt-right"><b>{{.Title}}</b></p>
+                        <p class="button-style tilt-left"><b>{{.Title}}</b></p>
                         <p class="button-style" title="{{.Stack}}" hx-swap="innerHTML" hx-get="/project?project={{.Title}}" hx-target="#modal-content"><span>&#9432;</span></p>
                          
                     </div>
